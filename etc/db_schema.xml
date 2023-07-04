@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="gift_code_pattern" resource="sales" engine="innodb" comment="Form_Data">
+        <column xsi:type="int" name="id" padding="10" unsigned="true" nullable="false" identity="true" comment="ENTITY_ID"/>
+        <column xsi:type="varchar" name="gift_code_pattern" comment="Gift Code Pattern"/>
+        <column xsi:type="varchar" name="code_pattern" comment="Code Pattern"/>
+        <column xsi:type="varchar" name="quantity" comment="Quantity"/>
+        <column xsi:type="varchar" name="unused" comment="Unused"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="id"/>
+        </constraint>
+    </table>
+    <table name="csv_data" resource="sales" engine="innodb" comment="Form_Data">
+        <column xsi:type="int" name="id" padding="10" unsigned="true" nullable="false" identity="true" comment="ENTITY_ID"/>
+        <column xsi:type="varchar" name="code" comment="Code"/>
+        <column xsi:type="varchar" name="status" comment="Status"/>
+        <column xsi:type="varchar" name="initial_value" comment="Initial Value"/>
+        <column xsi:type="varchar" name="current_value" comment="Current Value"/>
+        <column xsi:type="varchar" name="expiry_date" comment="Expiry Date"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="id"/>
+        </constraint>
+    </table>
+    <table name="template_data" resource="sales" engine="innodb" comment="Form_Data">
+        <column xsi:type="int" name="id" padding="10" unsigned="true" nullable="false" identity="true" comment="ID"/>
+        <column xsi:type="varchar" name="name" comment="Name"/>
+        <column xsi:type="varchar" name="sku" comment="Sku"/>
+        <column xsi:type="varchar" name="image" comment="Image"/>
+        <column xsi:type="varchar" name="status" comment="Status"/>
+        <column xsi:type="varchar" name="gift_code_color" comment="Gift Code Color"/>
+        <column xsi:type="varchar" name="gift_card_message" comment="Gift Card Message"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="id"/>
+        </constraint>
+    </table>
+</schema>

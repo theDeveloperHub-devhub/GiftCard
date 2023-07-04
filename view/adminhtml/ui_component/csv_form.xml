@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">csv_form.csv_form_data_source</item>
+        </item>
+        <item name="label" xsi:type="string" translate="true">Tabs Information</item>
+        <item name="template" xsi:type="string">templates/form/collapsible</item>
+    </argument>
+    <settings>
+        <buttons>
+            <button name="back">
+                <url path="*/*/create"/>
+                <class>back</class>
+                <label translate="true">Back</label>
+            </button>
+            <button name="save">
+                <url path="*/*/save"/>
+                <class>primary</class>
+                <label translate="true">Save</label>
+            </button>
+        </buttons>
+        <namespace>csv_form</namespace>
+        <dataScope>data</dataScope>
+        <deps>
+            <dep>csv_form.csv_form_data_source</dep>
+        </deps>
+    </settings>
+    <dataSource name="csv_form_data_source">
+        <argument name="data" xsi:type="array">
+            <item name="js_config" xsi:type="array">
+                <item name="component" xsi:type="string">Magento_Ui/js/form/provider</item>
+            </item>
+        </argument>
+        <settings>
+            <submitUrl path="*/*/save"/>
+        </settings>
+        <dataProvider class="DeveloperHub\GiftCard\Ui\CSVDataProvider" name="csv_form_data_source">
+            <settings>
+                <requestFieldName>id</requestFieldName>
+                <primaryFieldName>id</primaryFieldName>
+            </settings>
+        </dataProvider>
+    </dataSource>
+    <fieldset name="csv_tabs">
+        <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+                <item name="is_collection" xsi:type="boolean">true</item>
+            </item>
+        </argument>
+        <settings>
+            <label translate="true">Gift Code Account Detail</label>
+            <collapsible>false</collapsible>
+            <opened>true</opened>
+        </settings>
+        <field name="code" sortOrder="20" formElement="input" >
+            <settings>
+                <dataType>text</dataType>
+                <label translate="true">Gift Card Code</label>
+                <dataScope>code</dataScope>
+                <validation>
+                    <rule name="max_text_length" xsi:type="string">20</rule>
+                    <rule name="required-entry" xsi:type="boolean">true</rule>
+                </validation>
+            </settings>
+        </field>
+        <field name="status" sortOrder="30" formElement="input">
+            <settings>
+                <dataType>int</dataType>
+                <label translate="true">Status</label>
+                <dataScope>status</dataScope>
+                <validation>
+                    <rule name="required-entry" xsi:type="boolean">true</rule>
+                </validation>
+            </settings>
+        </field>
+        <field name="initial_value" sortOrder="30" formElement="input">
+            <settings>
+                <dataType>int</dataType>
+                <label translate="true">Initial Value</label>
+                <dataScope>initial_value</dataScope>
+                <validation>
+                    <rule name="required-entry" xsi:type="boolean">true</rule>
+                </validation>
+            </settings>
+        </field>
+        <field name="current_value" sortOrder="50" formElement="textarea">
+            <settings>
+                <dataType>text</dataType>
+                <label translate="true">Current Value</label>
+                <dataScope>current_value</dataScope>
+                <validation>
+                    <rule name="required-entry" xsi:type="string">true</rule>
+                </validation>
+            </settings>
+        </field>
+        <field name="expiry_date" sortOrder="50" formElement="textarea">
+            <settings>
+                <dataType>text</dataType>
+                <label translate="true">Expiry Date</label>
+                <dataScope>expiry_date</dataScope>
+                <validation>
+                    <rule name="required-entry" xsi:type="string">true</rule>
+                </validation>
+            </settings>
+        </field>
+    </fieldset>
+</form>

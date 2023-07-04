@@ -1,0 +1,23 @@
+<?php
+/** @var \DeveloperHub\GiftCard\Block\Index $block */
+$colection = $block->getCollection();
+foreach ($colection as $value) :
+    $id = $value['id'];
+    $link = "http://magento24.test/developerhub/index/productdetail/id/";
+    ?>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4" style="float: left; text-align: center; padding-left: 20px" >
+                <div class="card-group">
+                    <div class="card">
+                        <img src="<?php echo $value['image']?>" width="300" height="300" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <a style="font-size: 25px" href="<?php echo $link . $id; ?>" class="btn btn-primary"><?php echo $value['name'] ?></a>
+                            <p style="font-size: 20px" class="card-text">50$</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<?php endforeach; ?>

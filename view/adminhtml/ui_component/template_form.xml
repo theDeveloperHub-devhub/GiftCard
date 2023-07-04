@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">template_form.template_form_data_source</item>
+        </item>
+        <item name="label" xsi:type="string" translate="true">Template Information</item>
+        <item name="template" xsi:type="string">templates/form/collapsible</item>
+    </argument>
+    <settings>
+        <buttons>
+            <button name="back">
+                <url path="developer_hub/template/create"/>
+                <class>back</class>
+                <label translate="true">Back</label>
+            </button>
+            <button name="save">
+                <url path="developer_hub/template/save"/>
+                <class>primary</class>
+                <label translate="true">Save</label>
+            </button>
+        </buttons>
+        <namespace>template_form</namespace>
+        <dataScope>data</dataScope>
+        <deps>
+            <dep>template_form.template_form_data_source</dep>
+        </deps>
+    </settings>
+    <dataSource name="template_form_data_source">
+        <argument name="data" xsi:type="array">
+            <item name="js_config" xsi:type="array">
+                <item name="component" xsi:type="string">Magento_Ui/js/form/provider</item>
+            </item>
+        </argument>
+        <settings>
+            <submitUrl path="developer_hub/template/save"/>
+        </settings>
+        <dataProvider class="DeveloperHub\GiftCard\Ui\TemplateDataProvider" name="template_form_data_source">
+            <settings>
+                <requestFieldName>id</requestFieldName>
+                <primaryFieldName>id</primaryFieldName>
+            </settings>
+        </dataProvider>
+    </dataSource>
+    <fieldset name="custom_tabs">
+        <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+                <item name="is_collection" xsi:type="boolean">true</item>
+            </item>
+        </argument>
+        <settings>
+            <label translate="true">General</label>
+            <collapsible>false</collapsible>
+            <opened>true</opened>
+        </settings>
+        <field name="name" sortOrder="20" formElement="input" >
+            <settings>
+                <dataType>text</dataType>
+                <label translate="true">Name</label>
+                <dataScope>name</dataScope>
+                <validation>
+                    <rule name="max_text_length" xsi:type="string">20</rule>
+                    <rule name="required-entry" xsi:type="boolean">true</rule>
+                </validation>
+            </settings>
+        </field>
+        <field name="sku" sortOrder="20" formElement="input" >
+            <settings>
+                <dataType>text</dataType>
+                <label translate="true">Sku</label>
+                <dataScope>sku</dataScope>
+                <validation>
+                    <rule name="max_text_length" xsi:type="string">20</rule>
+                    <rule name="required-entry" xsi:type="boolean">true</rule>
+                </validation>
+            </settings>
+        </field>
+        <field name="status" formElement="select">
+            <settings>
+                <dataType>text</dataType>
+                <label translate="true">Status</label>
+                <dataScope>status</dataScope>
+                <validation>
+                    <rule name="required-entry" xsi:type="boolean">true</rule>
+                </validation>
+            </settings>
+            <formElements>
+                <select>
+                    <settings>
+                        <options>
+                            <option name="1" xsi:type="array">
+                                <item name="value" xsi:type="string">Active</item>
+                                <item name="label" xsi:type="string">Enabled</item>
+                            </option>
+                            <option name="2" xsi:type="array">
+                                <item name="value" xsi:type="string">Inactive</item>
+                                <item name="label" xsi:type="string">Disabled</item>
+                            </option>
+                        </options>
+                        <caption translate="true">-- Please Select --</caption>
+                    </settings>
+                </select>
+            </formElements>
+        </field>
+        <field name="gift_code_color">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="label" xsi:type="string" translate="true">Gift Code Color</item>
+                    <item name="formElement" xsi:type="string">colorPicker</item>
+                    <item name="componentType" xsi:type="string">field</item>
+                    <item name="component" xsi:type="string">DeveloperHub_GiftCard/js/form/element/color-picker</item>
+                </item>
+            </argument>
+            <settings>
+                <validation>
+                    <rule name="required-entry" xsi:type="boolean">true</rule>
+                </validation>
+            </settings>
+        </field>
+        <field name="gift_card_message">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="label" xsi:type="string" translate="true">Gift Card Message Text Color</item>
+                    <item name="formElement" xsi:type="string">colorPicker</item>
+                    <item name="componentType" xsi:type="string">field</item>
+                    <item name="component" xsi:type="string">DeveloperHub_GiftCard/js/form/element/color-picker</item>
+                </item>
+            </argument>
+            <settings>
+                <validation>
+                    <rule name="required-entry" xsi:type="boolean">true</rule>
+                </validation>
+            </settings>
+        </field>
+        <field name="image" formElement="imageUploader">
+            <settings>
+                <label translate="true">Image</label>
+                <componentType>imageUploader</componentType>
+            </settings>
+            <formElements>
+                <imageUploader>
+                    <settings>
+                        <allowedExtensions>jpg jpeg gif png</allowedExtensions>
+                        <maxFileSize>4194304</maxFileSize>
+                        <uploaderConfig>
+                            <param xsi:type="string" name="url">developer_hub/template/upload</param>
+                        </uploaderConfig>
+                        <previewTmpl>Magento_PageBuilder/form/element/uploader/preview</previewTmpl>
+                    </settings>
+                </imageUploader>
+            </formElements>
+        </field>
+    </fieldset>
+</form>

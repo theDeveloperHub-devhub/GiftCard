@@ -1,0 +1,62 @@
+<?php
+/** @var \DeveloperHub\GiftCard\Block\ProductDetail $block */
+$colection = $block->getParams();
+$template = $colection[0]['templateName'];
+$buttonTitle = __('Add to Cart');
+?>
+<form data-role="tocart-form" action="<?= $block->getUrl('developerhub/path/addtocart') ?>" method="post">
+    <?= $block->getBlockHtml('formkey') ?>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6" style="float: left; width: 70rem">
+                <img src="<?php echo $colection[0]['image']?>" width="700" height="700" />
+            </div>
+            <div class="col-md-6 text-field" style="float:right; width: 50rem">
+                <h2> <?php echo $colection[0]['name'] ?></h2>
+                <label>Card Value</label>
+                <select class="column" name="card_value" title="Card Value" required="required">
+                    <option value="choose">Choose an amount...</option>
+                    <option value="us">US$30</option>
+                </select>
+                <label>Template</label>
+                <select class="column" name="template" id="template" title="Template" required="required">
+                    <option value="choose">Choose an template</option>
+                    <?php foreach ($template as $item) :?>
+                        <option value="<?php echo $item['template_id'] ?>"><?php echo $item['template_name']?></option>
+                    <?php endforeach; ?>
+                </select>
+                <div id="show">
+                </div>
+                <label>Sender Name</label>
+                <input class="column" type="text" name="sender_name" required="required"/>
+                <label>Email</label>
+                <input class="column" type="text" name="email" required="required"/>
+                <label>Message</label>
+                <input class="column" type="text" name="message"/>
+                <label>Delivery Date</label>
+                <input type="text" name="selected_date" id="selected_date" class="column" required="required" style="margin-bottom: 2rem" />
+                <div class="box-tocart">
+                    <div class="fieldset">
+                        <div class="field qty">
+                            <label class="label" for="qty">Qty</label>
+                            <div class="control">
+                                <input type="number"
+                                       name="qty"
+                                       id="qty"
+                                       min="0"
+                                       title="Qty"
+                                       class="input-text qty"
+                                />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <input type="hidden" name="id" value="<?= $colection[0]['id'] ?>">
+                <input type="hidden" name="selected_configurable_option" value="">
+                <button type="submit" title="Add to Cart" class="action tocart primary">
+                        <span style="float: right">Add to Cart</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</form>

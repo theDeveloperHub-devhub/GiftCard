@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="DeveloperHub_GiftCard::DeveloperHub" title="Gift Code Pattern" module="DeveloperHub_GiftCard" sortOrder="999" parent="Magento_Catalog::catalog"
+             action="developer_hub/create/create" resource="DeveloperHub_GiftCard::DeveloperHub"/>
+    </menu>
+    <menu>
+        <add id="DeveloperHub_GiftCard::DeveloperHub_csv" title="Gift Code Account" module="DeveloperHub_GiftCard" sortOrder="1001" parent="Magento_Catalog::catalog"
+             action="developer_hub/csv/create" resource="DeveloperHub_GiftCard::DeveloperHub"/>
+    </menu>
+    <menu>
+        <add id="DeveloperHub_GiftCard::DeveloperHub_template" title="Gift Card Template" module="DeveloperHub_GiftCard" sortOrder="1002" parent="Magento_Catalog::catalog"
+             action="developer_hub/template/create" resource="DeveloperHub_GiftCard::DeveloperHub"/>
+    </menu>
+</config>

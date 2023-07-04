@@ -1,0 +1,41 @@
+{
+    "gift_code_pattern": {
+        "column": {
+            "entity_id": true,
+            "gift_code_pattern": true,
+            "code_pattern": true,
+            "quantity": true,
+            "unused": true,
+            "id": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    },
+    "csv_data": {
+        "column": {
+            "id": true,
+            "code": true,
+            "status": true,
+            "initial_value": true,
+            "current_value": true,
+            "expiry_date": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    },
+    "template_data": {
+        "column": {
+            "id": true,
+            "name": true,
+            "image": true,
+            "status": true,
+            "gift_code_color": true,
+            "gift_card_message": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    }
+}
